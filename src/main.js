@@ -35,6 +35,7 @@ Vue.use(ElementUI, { locale })
 
 Vue.config.productionTip = false
 
+// console.log(process.env) //webpack暴露的环境变量
 new Vue({
   el: '#app',
   router,

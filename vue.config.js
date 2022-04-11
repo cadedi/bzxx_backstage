@@ -36,7 +36,15 @@ module.exports = {
       warnings: false,
       errors: true
     },
-    before: require('./mock/mock-server.js')
+    //mock数据
+    // before: require('./mock/mock-server.js')
+    // 新增,配置代理跨域
+    port:9090,
+    // proxy: {
+    //   "/bzxx": {
+    //     target: "http://localhost:8080/",
+    //   },
+    // }
   },
   configureWebpack: {
     // provide the app's title in webpack's name field, so that
