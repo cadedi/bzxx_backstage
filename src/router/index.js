@@ -49,9 +49,9 @@ export const constantRoutes = [
     redirect: '/dashboard', //访问/立刻跳转/dashboard
     children: [{
       path: 'dashboard',
-      name: '首页',  //侧边栏及面包屑的标题
+      name: 'Dashboard',  //侧边栏及面包屑的标题
       component: () => import('@/views/dashboard/index'),
-      meta: { title: 'Dashboard', icon: 'dashboard' }
+      meta: { title: '首页', icon: 'dashboard' }
     }]
   },
   {
