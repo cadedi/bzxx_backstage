@@ -53,7 +53,7 @@
         </template>
       </el-table-column>
 
-      <el-table-column label="操作" width="221" align="center">
+      <el-table-column label="操作" align="center">
         <template slot-scope="{ row }">
           <a title="修改" style="margin: 10px">
             <el-button
