@@ -141,6 +141,7 @@
 </template>
 
 <script>
+import cloneDeep from 'lodash/cloneDeep'
 export default {
   name: "EnterpriseStd",
 
@@ -190,10 +191,10 @@ export default {
     },
     resetSearch() {
       this.searchObj = {
-        username: "",
+        standardName: "",
       };
       this.tempSearchObj = {
-        username: "",
+        standardName: "",
       };
       this.getInfos();
     },
@@ -206,13 +207,26 @@ export default {
       this.$message.success("删除成功");
       this.getInfos(this.stdInfos.length === 1 ? this.page - 1 : this.page);
     },
-    showUpdateInfo() {},
-    cancel() {},
+    showUpdateInfo(std) {
+      this.std = cloneDeep(std)
+      this.dialogStdVisible = true
+    },
+    cancel() {
+      this.dialogStdVisible = false
+      this.std = {}
+    },
     addOrUpdate() {
       const { std } = this;
       this.loading = true;
       if(std.id){
         // 修改
+          this.$API.enterpriseStd.reqUpdateEnterpriseStd(std).then((result) => {
+          this.loading = false;
+          this.$message.success("保存成功!");
+          this.getInfos(std.id ? this.page : 1);
+          this.std = {};
+          this.dialogStdVisible = false;
+        })
       }else{
         // 新增
         this.$API.enterpriseStd.reqAddEnterpriseStd(std).then((result) => {
