@@ -35,7 +35,7 @@ Vue.use(ElementUI, { locale })
 
 
 import API from '@/api';
-Vue.prototype.$API =API;
+Vue.prototype.$API = API;
 
 
 

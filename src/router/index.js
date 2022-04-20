@@ -49,7 +49,7 @@ export const constantRoutes = [
     redirect: '/dashboard', //访问/立刻跳转/dashboard
     children: [{
       path: 'dashboard',
-      name: 'Dashboard',  //侧边栏及面包屑的标题
+      name: 'dashboard',  //侧边栏及面包屑的标题
       component: () => import('@/views/dashboard/index'),
       meta: { title: '首页', icon: 'dashboard' }
     }]
@@ -83,6 +83,20 @@ export const constantRoutes = [
         name:'NationalStd',
         component:()=>import('@/views/infoMgmt/NationalStd'),
         meta:{title:'国家标准管理'}
+      }
+    ]
+  },
+  {
+    path:'/userMgmt',
+    component:Layout,
+    name:'UserMgmt',
+    meta:{title:'用户管理',icon:'el-icon-user'},
+    children:[
+      {
+        path:'userInfo',
+        name:'UserInfo',
+        component:()=>import('@/views/userMgmt/UserInfo'),
+        meta:{title:'用户信息'}
       }
     ]
   },
